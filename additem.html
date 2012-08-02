@@ -21,6 +21,23 @@
 		<fieldset>
 			<legend>Add A Game</legend>
 			<ul>
-				<li><label for="name">Game Name:</label><input type="text" id="name" /></li>
+				<li><label for="name">Name:</label><input type="text" id="name" /></li>
+				<li><label for="genre">Genre:</label>
+					<select id="genre">
+						<option value="Action-Adventure">Action-Adventure</option>
+						<option value="Fighting">Fighting</option>
+						<option value="FPS">FPS</option>
+						<option value="Platformer">Platformer</option>
+						<option value="Puzzle">Puzzle</option>
+						<option value="RPG">RPG</option>
+						<option value="Simulation">Simulation</option>
+						<option value="Sports">Sports</option>
+						<option value="Strategy">Strategy</option>
+					</select>
+				</li>
+				<li><label for="releasedate">Release Date:</label><input type="date" id="releasedate" /></li>
+				<li>What platform is the game on?
+					<ul>
+						<li><input type="checkbox" value="Playstation 3" id="ps3" /><label for="ps3">Playstation 3</label>
 </body>
 </html>
