@@ -2,22 +2,25 @@
 
 <!-- Justin Rasnic
 	 VFW 1208
-	 Project 1 -->
+	 Project 1 
+	 additem.html -->
 
 <html>
 <head>
+	<!-- meta data -->
 	<meta charset="utf-8" />
-	<meta name="description" content="A web app that saves games ratings and keeps track of the games you own or want to buy!" />
+	<meta name="description" content="A web app that saves game ratings and keeps track of the games you own or want to buy!" />
 	<meta name="keywords" content="game, video game, games, video games, ratings" />
 	<meta name="robots" content="index, follow" />
 	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	<!-- page title -->
 	<title>Add A Game Rating!</title>
 </head>
 <body>
 	<header>
 		<h1>Game Rater</h1>
 	</header>
-	<form action="" method="post">
+	<form action="" method="post"> <!-- Do nothing with submitted data for now -->
 		<fieldset>
 			<legend>Add A Game</legend>
 			<ul>
@@ -57,14 +60,14 @@
 				</li>
 				<li><label for="notes">Notes:<textarea id="notes"></textarea></li>
 			</ul>
-			<input type="hidden" value="true" />
+			<input type="hidden" value="true" /> <!-- required "hidden" input; no use at tis time -->
 		</fieldset>
 		<input type="submit" value="Save Game Rating" />
 	</form>
-
-	</br>
-
+	</br> <!-- links below seem like they should be separate from form content -->
+<footer>
 	<a href="#">Clear Data</a>
 	<a href="#">Display Data</a>
+</footer>
 </body>
 </html>
