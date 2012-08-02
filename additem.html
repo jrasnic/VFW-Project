@@ -38,6 +38,33 @@
 				<li><label for="releasedate">Release Date:</label><input type="date" id="releasedate" /></li>
 				<li>What platform is the game on?
 					<ul>
-						<li><input type="checkbox" value="Playstation 3" id="ps3" /><label for="ps3">Playstation 3</label>
+						<li><input type="checkbox" value="Playstation 3" id="ps3" /><label for="ps3">Playstation 3</label></li>
+						<li><input type="checkbox" value="Xbox 360" id="xbox" /><label for="xbox">Xbox 360</label></li>
+						<li><input type="checkbox" value="Nintendo Wii" id="wii" /><label for="wii">Nintendo Wii</label></li>
+						<li><input type="checkbox" value="Windows" id="windows" /><label for="windows">Windows</label></li>
+						<li><input type="checkbox" value="Mac" id="mac" /><label for="mac">Mac</label></li>
+						<li><input type="checkbox" value="iOS" id="ios" /><label for="ios">iOS</label></li>
+						<li><input type="checkbox" value="Android" id="android" /><label for="android">Android</label></li>
+					</ul>
+				</li>
+				<li><label for="quality">How would you rate the quality of this game?</label><input type="range" id="quality" /></li>
+				<li>Would you buy this game?
+					<ul>
+						<li><input type="radio" value="Own" id="own" name="ownership" /><label for="own">I already own this game</label></li>
+						<li><input type="radio" value="Would By" id="wouldbuy" name="ownership" /><label for="wouldbuy">I would/will buy this game</label></li>
+						<li><input type="radio" value="No Want" id="nowant" name="ownership" /><label for="nowant">I do not want this game</label></li>
+					</ul>
+				</li>
+				<li><label for="notes">Notes:<textarea id="notes"></textarea></li>
+			</ul>
+			<input type="hidden" value="true" />
+		</fieldset>
+		<input type="submit" value="Save Game Rating" />
+	</form>
+
+	</br>
+
+	<a href="#">Clear Data</a>
+	<a href="#">Display Data</a>
 </body>
 </html>
