@@ -48,6 +48,26 @@ window.addEventListener("DOMContentLoaded", function(){
 		};
 	};
 
+	function toggleControls(n){
+		switch(n){
+			case "on":
+				$("mainform").style.display = "none";
+				$("clear").style.display = "inline";
+				$("display").style.display = "none";
+				$("addNew").style.display = "inline";
+				break;
+			case "off":
+				$("mainform").style.display = "block";
+				$("clear").style.display = "inline";
+				$("display").style.display = "inline";
+				$("addNew").style.display = "none";
+				$("items").style.display = "none";
+				break;
+			default:
+				return false;
+		};
+	};
+
 	// store form data in local storage
 	function saveData(){
 		var id = Math.floor(Math.random()*10000001);
@@ -67,11 +87,17 @@ window.addEventListener("DOMContentLoaded", function(){
 
 	// get data from local storage and display in browser
 	function getData(){
+		toggleControls("on");
+		if(localStorage.length === 0){
+			alert("No data found");
+			window.location.reload();
+		};
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement("ul");
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
+		$("items").style.display = "block"; 
 		for(i=0, j=localStorage.length; i<j; i++){
 			var makeLi = document.createElement("li");
 			makeList.appendChild(makeLi);
@@ -89,6 +115,18 @@ window.addEventListener("DOMContentLoaded", function(){
 		};
 	};
 
+	function clearData(){
+		if(localStorage.length === 0){
+			alert("There are no ratings to clear!");
+		} else{
+			localStorage.clear();
+			alert("All ratings are deleted!");
+			window.location.reload();
+			return false;
+		};
+
+	};
+
 	// variables
 	var gameGenres = ["--Choose A Genre--","Action-Adventure", "Fighting", "FPS", "Platformer", "Puzzle", "RPG", "Simulation", "Sports", "Strategy"];
 	var platformValues = [];
@@ -99,11 +137,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	// set click events
 	var displayLink = $("display");
 	displayLink.addEventListener("click", getData);
-
-	/*var clearLink = $("clear");
-	clearLink.addEventListener("click", clearData);*/
-
-	// store data in local storage when user clicks submit
+	var clearLink = $("clear");
+	clearLink.addEventListener("click", clearData);
 	var save = $("submit");
 	save.addEventListener("click", saveData);
 });
