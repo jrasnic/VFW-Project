@@ -20,9 +20,9 @@
 	<header>
 		<h1>Game Rater</h1>
 	</header>
-	<form action="" method="post"> <!-- Do nothing with submitted data for now -->
+	<form action="" method="post" id="mainform"> <!-- Do nothing with submitted data for now -->
 		<fieldset>
-			<legend>Add A Game</legend>
+			<legend>Add A Game Rating</legend>
 			<ul>
 				<li><label for="gname">Game Name:</label><input type="text" id="gname" /></li>
 				<li id="select"><label for="genre">Genre:</label>
@@ -41,13 +41,13 @@
 				<li><label for="releasedate">Release Date:</label><input type="date" id="releasedate" /></li>
 				<li>What platform is the game on?
 					<ul>
-						<li><input type="checkbox" value="Playstation 3" id="ps3" /><label for="ps3">Playstation 3</label></li>
-						<li><input type="checkbox" value="Xbox 360" id="xbox" /><label for="xbox">Xbox 360</label></li>
-						<li><input type="checkbox" value="Nintendo Wii" id="wii" /><label for="wii">Nintendo Wii</label></li>
-						<li><input type="checkbox" value="Windows" id="windows" /><label for="windows">Windows</label></li>
-						<li><input type="checkbox" value="Mac" id="mac" /><label for="mac">Mac</label></li>
-						<li><input type="checkbox" value="iOS" id="ios" /><label for="ios">iOS</label></li>
-						<li><input type="checkbox" value="Android" id="android" /><label for="android">Android</label></li>
+						<li><input type="checkbox" value="Playstation 3" id="ps3" name="platforms" /><label for="ps3">Playstation 3</label></li>
+						<li><input type="checkbox" value="Xbox 360" id="xbox" name="platforms" /><label for="xbox">Xbox 360</label></li>
+						<li><input type="checkbox" value="Nintendo Wii" id="wii" name="platforms" /><label for="wii">Nintendo Wii</label></li>
+						<li><input type="checkbox" value="Windows" id="windows" name="platforms" /><label for="windows">Windows</label></li>
+						<li><input type="checkbox" value="Mac" id="mac" name="platforms" /><label for="mac">Mac</label></li>
+						<li><input type="checkbox" value="iOS" id="ios" name="platforms" /><label for="ios">iOS</label></li>
+						<li><input type="checkbox" value="Android" id="android" name="platforms" /><label for="android">Android</label></li>
 					</ul>
 				</li>
 				<li><label for="quality">How would you rate the quality of this game?</label><input type="range" id="quality" /></li>
