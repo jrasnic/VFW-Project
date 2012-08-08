@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		return element;
 	};
 
-	// create select element
+	// create "select" form element
 	function makeCats(){
 		var formTag = document.getElementsByTagName("form"),
 			selectLi = $("select"),
@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		selectLi.appendChild(makeSelect);
 	};
 
-	//checkbox values
+	// get checkbox values
 	function getPlatformValues(){                      
 		var checkboxes = $("mainform").platforms;
 		for(i=0, j=checkboxes.length; i<j; i++){
@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		};
 	};
 
-	// radio value
+	// get radio value
 	function getOwnershipValue(){                      
 		var radios = $("mainform").ownership;
 		for (i=0, j=radios.length; i<j; i++){
@@ -48,6 +48,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		};
 	};
 
+	// store form data in local storage
 	function saveData(){
 		var id = Math.floor(Math.random()*10000001);
 		getPlatformValues();
@@ -56,7 +57,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.gname = ["Game Name: ", $("gname").value];
 			item.genre = ["Genre: ", $("genre").value];
 			item.releaseDate = ["Release Date: ", $("releasedate").value];
-			item.platforms = ["Platforms: ", platformValues];
+			item.platforms = ["Platforms:", platformValues];
 			item.quality = ["Quality: ", $("quality").value];
 			item.ownership = ["Do you own it? ", ownershipValue];
 			item.notes = ["Notes: ", $("notes").value];
@@ -64,17 +65,45 @@ window.addEventListener("DOMContentLoaded", function(){
 		alert("Rating Saved!");		
 	};
 
+	// get data from local storage and display in browser
+	function getData(){
+		var makeDiv = document.createElement("div");
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement("ul");
+		makeDiv.appendChild(makeList);
+		document.body.appendChild(makeDiv);
+		for(i=0, j=localStorage.length; i<j; i++){
+			var makeLi = document.createElement("li");
+			makeList.appendChild(makeLi);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			var makeSubList = document.createElement("ul");
+			makeLi.appendChild(makeSubList);
+			for(var n in obj){
+				var makeSubLi = document.createElement("li");
+				makeSubList.appendChild(makeSubLi);
+				var optSubText = obj[n][0] + obj[n][1];
+				makeSubLi.innerHTML = optSubText;
+			};
+		};
+	};
+
 	// variables
 	var gameGenres = ["--Choose A Genre--","Action-Adventure", "Fighting", "FPS", "Platformer", "Puzzle", "RPG", "Simulation", "Sports", "Strategy"];
 	var platformValues = [];
 	var ownershipValue = "Do you own it?";
-	makeCats();
+
+	makeCats(); //create and populate "genre" field
 
 	// set click events
-	/*var displayLink = $("display");
+	var displayLink = $("display");
 	displayLink.addEventListener("click", getData);
-	var clearLink = $("clear");
+
+	/*var clearLink = $("clear");
 	clearLink.addEventListener("click", clearData);*/
+
+	// store data in local storage when user clicks submit
 	var save = $("submit");
 	save.addEventListener("click", saveData);
 });
