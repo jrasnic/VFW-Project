@@ -16,10 +16,10 @@ window.addEventListener("DOMContentLoaded", function(){
 		var formTag = document.getElementsByTagName("form"),
 			selectLi = $("select"),
 			makeSelect = document.createElement("select");
-			makeSelect.setAttribute("id", "genres");
-		for (var i=0, j=genres.length; i<j; i++){
+			makeSelect.setAttribute("id", "genre");
+		for (var i=0, j=gameGenres.length; i<j; i++){
 			var makeOption = document.createElement("option");
-			var optText = genres[i];
+			var optText = gameGenres[i];
 			makeOption.setAttribute("value", optText);
 			makeOption.innerHTML = optText;
 			makeSelect.appendChild(makeOption);
@@ -27,16 +27,30 @@ window.addEventListener("DOMContentLoaded", function(){
 		selectLi.appendChild(makeSelect);
 	};
 
+	function saveData(){
+		var id = Math.floor(Math.random()*10000001);
+		var item = {};
+			item.gname = ["Game Name: ", $("gname").value];
+			item.genre = ["Genre: ", $("genre").value];
+			item.releaseDate = ["Release Date: ", $("releasedate").value];
+			// item.platforms = ["Platforms: ", platformsValue];
+			item.quality = ["Quality: ", $("quality").value];
+			// item.ownership = ["Do you own it? ", ownershipValue];
+			item.notes = ["Notes: ", $("notes").value];
+		localStorage.setItem(id, JSON.stringify(item));
+		alert("Rating Saved!");
+	};
+
 	// variables
-	var genres = ["--Choose A Genre--","Action-Adventure", "Fighting", "FPS", "Platformer", "Puzzle", "RPG", "Simulation", "Sports", "Strategy"];
+	var gameGenres = ["--Choose A Genre--","Action-Adventure", "Fighting", "FPS", "Platformer", "Puzzle", "RPG", "Simulation", "Sports", "Strategy"];
 	makeCats();
 
 	// set click events
 	/*var displayLink = $("display");
 	displayLink.addEventListener("click", getData);
 	var clearLink = $("clear");
-	clearLink.addEventListener("click", clearData);
+	clearLink.addEventListener("click", clearData);*/
 	var save = $("submit");
-	save.addEventListener("click", saveData);*/
+	save.addEventListener("click", saveData);
 
 });
