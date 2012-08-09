@@ -62,6 +62,13 @@ a{
 	margin-left: 10px;
 }
 
+#displaylist{
+	margin-top: 10px;
+	margin-left: 10px;
+	list-style-type: square;
+	list-style-position: outside;
+}
+
 #ps3{
 	margin-top: 5px;
 }

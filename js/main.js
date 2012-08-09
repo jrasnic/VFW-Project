@@ -100,6 +100,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		$("items").style.display = "block"; 
 		for(i=0, j=localStorage.length; i<j; i++){
 			var makeLi = document.createElement("li");
+			makeLi.setAttribute("id", "displaylist");
 			makeList.appendChild(makeLi);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
