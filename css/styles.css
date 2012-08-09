@@ -1,0 +1,119 @@
+/* Justin Rasnic
+VFW1208
+Project 2
+CSS styles*/
+
+
+h1{
+	font-family: Eurostile, Arial Black, Arial, sans-serif;
+	font-size: 32px;
+	color: #F3F7FB;
+	text-align: center;
+	padding-bottom: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+body{
+	font-family: Eurostile, Arial, sans-serif;
+	color: #000;
+	background-color: #9FABAD;
+	text-align: center;
+}
+
+li{
+	margin-bottom: 3px;
+	text-align: left;
+	list-style: none;
+	margin-left: -30px;
+}
+
+section{
+	margin-top: 30px;
+}
+
+fieldset{
+	border: none;
+}
+
+legend{
+	color: #0C315F;
+	font-size: 18px;
+	text-align: left;
+	font-weight: bold;
+}
+
+label{
+	font-size: 14px;
+}
+
+nav{
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+a{
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#ps3{
+	margin-top: 5px;
+}
+
+#buy{
+	margin-top: 5px;
+}
+
+#quality{
+	margin-top: 5px;
+	width: 250px;
+}
+
+#platforms{
+	margin-left: 30px;
+}
+
+#radios{
+	margin-left: 30px;
+}
+
+#cta{
+	text-decoration: none;
+	font-family: Eurostile, Arial Black, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 28px;
+	color: #185EB4;
+}
+
+#gname{
+	width: 250px;
+}
+
+#genre{
+	width: 260px;
+}
+
+#releasedate{
+	width: 250px;
+}
+
+#notes{
+	width: 250px;
+	height: 60px;
+	resize: none;
+}
+
+#qualitylabel{
+	font-size: 16px;
+}
+
+#hiddeninput{
+	display: none;
+}
+
+#submit{
+	width: 200px;
+	font-size: 16px;
+	font-family: Eurostile, Arial, sans-serif;
+}

@@ -15,32 +15,27 @@
 	<meta name="viewport" content="user-scalable=no, width=device-width" />
 	<!-- page title -->
 	<title>Add A Game Rating!</title>
+	<link href="css/styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<header>
 		<h1>Game Rater</h1>
+		<nav>
+			<a href="#" id="clear">Clear Ratings</a>
+			<a href="#" id="display">Display Ratings</a>
+			<a href="additem.html" id="addNew" style="display:none">Add New Rating</a>
+		</nav>
 	</header>
 	<form action="" method="post" id="mainform"> <!-- Do nothing with submitted data for now -->
 		<fieldset>
 			<legend>Add A Game Rating</legend>
 			<ul>
-				<li><label for="gname">Game Name:</label><input type="text" id="gname" /></li>
-				<li id="select"><label for="genre">Genre:</label>
-					<!-- <select id="genres">
-						<option value="Action-Adventure">Action-Adventure</option>
-						<option value="Fighting">Fighting</option>
-						<option value="FPS">FPS</option>
-						<option value="Platformer">Platformer</option>
-						<option value="Puzzle">Puzzle</option>
-						<option value="RPG">RPG</option>
-						<option value="Simulation">Simulation</option>
-						<option value="Sports">Sports</option>
-						<option value="Strategy">Strategy</option>
-					</select> -->
+				<li><label for="gname">Game Name:</label></br><input type="text" id="gname" /></li>
+				<li id="select"><label for="genre">Genre:</label></br>
 				</li>
-				<li><label for="releasedate">Release Date:</label><input type="date" id="releasedate" /></li>
+				<li><label for="releasedate">Release Date:</label></br><input type="date" id="releasedate" /></li>
 				<li>What platform is the game on?
-					<ul>
+					<ul id="platforms">
 						<li><input type="checkbox" value=" Playstation 3" id="ps3" name="platforms" /><label for="ps3">Playstation 3</label></li>
 						<li><input type="checkbox" value=" Xbox 360" id="xbox" name="platforms" /><label for="xbox">Xbox 360</label></li>
 						<li><input type="checkbox" value=" Nintendo Wii" id="wii" name="platforms" /><label for="wii">Nintendo Wii</label></li>
@@ -50,29 +45,20 @@
 						<li><input type="checkbox" value=" Android" id="android" name="platforms" /><label for="android">Android</label></li>
 					</ul>
 				</li>
-				<li><label for="quality">How would you rate the quality of this game?</label><input type="range" id="quality" /></li>
-				<li>Would you buy this game?
-					<ul>
-						<li><input type="radio" value="Yes" id="own" name="ownership" /><label for="own">I already own this game</label></li>
-						<li><input type="radio" value="No, but I want it" id="wouldbuy" name="ownership" /><label for="wouldbuy">I would/will buy this game</label></li>
-						<li><input type="radio" value="No, and I don't want it" id="nowant" name="ownership" /><label for="nowant">I do not want this game</label></li>
+				<li><label for="quality" id="qualitylabel">How would you rate the quality of this game?</label></br><input type="range" id="quality" /></li>
+				<li>Recommendation:
+					<ul id="radios">
+						<li><input type="radio" value="Buy" id="buy" name="recommendation" /><label for="own">Buy</label></li>
+						<li><input type="radio" value="Rent/Borrow" id="rent" name="recommendation" /><label for="wouldbuy">Rent/Borrow</label></li>
+						<li><input type="radio" value="Skip" id="skip" name="recommendation" /><label for="nowant">Skip</label></li>
 					</ul>
 				</li>
-				<li><label for="notes">Notes:<textarea id="notes"></textarea></li>
+				<li><label for="notes">Notes:</label></br><textarea id="notes"></textarea></li>
 			</ul>
-			<input type="hidden" value="true" /> <!-- required "hidden" input; no use at this time -->
+			<input type="hidden" value="true" id="hiddeninput" /> <!-- required "hidden" input; no use at this time -->
+			<input type="submit" value="Save Game Rating" id="submit" />
 		</fieldset>
-		<input type="submit" value="Save Game Rating" id="submit" />
 	</form>
-	</br> <!-- links below seem like they should be separate from form content -->
-<footer>
-	<nav>
-		<a href="#" id="clear">Clear Ratings</a>
-		<a href="#" id="display">Display Ratings</a>
-		<a href="additem.html" id="addNew" style="display:none">Add New Rating</a>
-
-	</nav>
-</footer>
 <script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>
