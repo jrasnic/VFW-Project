@@ -100,6 +100,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		$("items").style.display = "block"; 
 		for(i=0, j=localStorage.length; i<j; i++){
 			var makeLi = document.createElement("li");
+			var linksLi = document.createElement("li");
 			makeLi.setAttribute("id", "displaylist");
 			makeList.appendChild(makeLi);
 			var key = localStorage.key(i);
@@ -112,8 +113,29 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeSubList.appendChild(makeSubLi);
 				var optSubText = obj[n][0] + obj[n][1];
 				makeSubLi.innerHTML = optSubText;
+				makeSubList.appendChild(linksLi);
 			};
+			makeItemLinks(localStorage.key(i), linksLi);
 		};
+	};
+
+	// create edit/delete links
+	function makeItemLinks(key, linksLi){
+		var editLink = document.createElement("a");
+		editLink.href = "#";
+		editLink.key = key;
+		var editText = "Edit Game";
+		//editLink.addEventListener("click", editItem);
+		editLink.innerHTML = editText;
+		linksLi.appendChild(editLink);
+
+		var deleteLink = document.createElement("a");
+		deleteLink.href = "#";
+		deleteLink.key = key;
+		var deleteText = "Delete Game";
+		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.innerHTML = deleteText;
+		linksLi.appendChild(deleteLink);
 	};
 
 	function clearData(){
