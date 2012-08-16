@@ -79,7 +79,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.releaseDate = ["Release Date: ", $("releasedate").value];
 			item.platforms = ["Platforms:", platformValues];
 			item.quality = ["Quality: ", $("quality").value];
-			item.ownership = ["Recommendation: ", recommendationValue];
+			item.recommendation = ["Recommendation: ", recommendationValue];
 			item.notes = ["Notes: ", $("notes").value];
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Rating Saved!");		
@@ -121,14 +121,17 @@ window.addEventListener("DOMContentLoaded", function(){
 
 	// create edit/delete links
 	function makeItemLinks(key, linksLi){
+
+		//edit link
 		var editLink = document.createElement("a");
 		editLink.href = "#";
 		editLink.key = key;
 		var editText = "Edit Game";
-		//editLink.addEventListener("click", editItem);
+		editLink.addEventListener("click", editItem);
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
 
+		//delete link
 		var deleteLink = document.createElement("a");
 		deleteLink.href = "#";
 		deleteLink.key = key;
@@ -136,6 +139,59 @@ window.addEventListener("DOMContentLoaded", function(){
 		//deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
+	};
+
+	function editItem(){
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+
+		//show form
+		toggleControls("off");
+
+		//populate form
+		$("gname").value = item.gname[1];
+		$("genre").value = item.genre[1];
+		$("releasedate").value = item.releaseDate[1];
+
+		// find which checkboxes should be checked, and check them
+		var checkboxes = $("mainform").platforms;
+		var selectedPlatforms = item.platforms[1];
+		for(var n=0, m=checkboxes.length; n<m; n++){
+			for(var x=0, y=selectedPlatforms.length; x<y; x++){
+				if(selectedPlatforms[x] == checkboxes[n].value){
+					checkboxes[n].setAttribute("checked", "checked");
+				};
+			};
+		};
+
+		$("quality").value = item.quality[1];	
+
+		// find which radio should be checked and check it
+		var radios = $("mainform").recommendation;
+		for(var i=0, j=radios.length; i<j; i++){
+			if(radios[i].value == "Buy" && item.recommendation[1] == "Buy"){
+				radios[i].setAttribute("checked", "checked");
+			} else if(radios[i].value == "Rent/Borrow" && item.recommendation[1] == "Rent/Borrow"){
+				radios[i].setAttribute("checked", "checked");
+			} else if(radios[i].value == "Skip" && item.recommendation[1] == "Skip"){
+				radios[i].setAttribute("checked", "checked");
+			};
+		};
+
+		$("notes").value = item.notes[1]; 
+
+		//remove initial listener from save button
+		save.removeEventListener("click", saveData);
+		//change submit button to edit button
+		$("submit").value = "Edit Game Entry";
+		var editSubmit = $("submit");
+		editSubmit.addEventListener("click", validate);
+		//save key value
+		editSubmit.key = this.key;
+	};
+
+	function validate(){
+
 	};
 
 	function clearData(){

@@ -57,9 +57,13 @@ nav{
 	margin-bottom: 40px;
 }
 
-a{
+nav a{
 	margin-right: 10px;
 	margin-left: 10px;
+	
+}
+a{
+	margin-right: 10px;
 }
 
 #displaylist{
