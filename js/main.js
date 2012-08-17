@@ -249,6 +249,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				txt.innerHTML = messages[i];
 				errMsg.appendChild(txt);
 			};
+			document.body.style.height = "910px";
 			e.preventDefault();
 			return false;
 		}else{                        //if no errors, save data
