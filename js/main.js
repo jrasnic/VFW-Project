@@ -69,8 +69,12 @@ window.addEventListener("DOMContentLoaded", function(){
 	};
 
 	// store form data in local storage
-	function saveData(){
-		var id = Math.floor(Math.random()*10000001);
+	function saveData(key){
+		if(!key){
+			var id = Math.floor(Math.random()*10000001);
+		}else{
+			id = key;
+		}
 		getPlatformValues();
 		getRecommendationValue();
 		var item = {};
@@ -88,6 +92,13 @@ window.addEventListener("DOMContentLoaded", function(){
 	// get data from local storage and display in browser
 	function getData(){
 		toggleControls("on");
+
+		// var getGname = $("gname");
+		// var getGenre = $("genre");
+		// errMsg.innerHTML = "";
+		// getGname.style.border = "1px solid black";
+		// getGenre.style.border = "1px solid black";
+
 		if(localStorage.length === 0){
 			alert("No ratings saved");
 			window.location.reload();
@@ -190,8 +201,46 @@ window.addEventListener("DOMContentLoaded", function(){
 		editSubmit.key = this.key;
 	};
 
-	function validate(){
+	function validate(e){
+		//define elements I want to check
+		var getGname = $("gname");
+		var getGenre = $("genre");
 
+		//reset error messages
+		errMsg.innerHTML = "";
+		getGname.style.border = "1px solid black";
+		getGenre.style.border = "1px solid black";
+
+		//get error messages
+		var messages = [];
+
+		//name validation
+		if(getGname.value === ""){
+			var gNameError = "Please enter a name for the game.";
+			getGname.style.border = "1px solid red";
+			messages.push(gNameError);
+		};
+
+		//genre validation
+		if(getGenre.value === "--Choose A Genre--"){
+			var genreError = "Please choose a genre.";
+			getGenre.style.border = "1px solid red";
+			messages.push(genreError);
+		};
+
+		//display errors 
+		if(messages.length >= 1){
+			for(var i=0, j=messages.length; i<j; i++){
+				var txt = document.createElement("li");
+				txt.innerHTML = messages[i];
+				errMsg.appendChild(txt);
+			};
+			e.preventDefault();
+			return false;
+		}else{                        //if no errors, save data
+			saveData(this.key);
+		};
+		
 	};
 
 	function clearData(){
@@ -210,6 +259,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	var gameGenres = ["--Choose A Genre--","Action-Adventure", "Fighting", "FPS", "Platformer", "Puzzle", "RPG", "Simulation", "Sports", "Strategy"];
 	var platformValues = [];
 	var recommendationValue = "Recommendation?";
+	var errMsg = $("errors");
 
 	makeCats(); //create and populate "genre" field
 
@@ -219,5 +269,5 @@ window.addEventListener("DOMContentLoaded", function(){
 	var clearLink = $("clear");
 	clearLink.addEventListener("click", clearData);
 	var save = $("submit");
-	save.addEventListener("click", saveData);
+	save.addEventListener("click", validate);
 });

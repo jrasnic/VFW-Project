@@ -26,12 +26,14 @@
 			<a href="additem.html" id="addNew" style="display:none">Add New Rating</a>
 		</nav>
 	</header>
-	<form action="" method="post" id="mainform"> <!-- Do nothing with submitted data for now -->
+	<form action="" method="post" id="mainform"> 
 		<fieldset>
 			<legend>Add A Game Rating</legend>
+			<div id="required">* denotes a required field.</div>
+			<ul id ="errors"></ul>
 			<ul>
-				<li><label for="gname">Game Name:</label></br><input type="text" id="gname" /></li>
-				<li id="select"><label for="genre">Genre:</label></br>
+				<li><label for="gname">*Game Name:</label></br><input type="text" id="gname" /></li>
+				<li id="select"><label for="genre">*Genre:</label></br>
 				</li>
 				<li><label for="releasedate">Release Date:</label></br><input type="date" id="releasedate" /></li>
 				<li>What platform is the game on?

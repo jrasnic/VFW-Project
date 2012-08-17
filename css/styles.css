@@ -66,6 +66,15 @@ a{
 	margin-right: 10px;
 }
 
+#errors{
+	color: red;
+}
+
+#required{
+	font-size: 14px;
+	text-align: left;
+}
+
 #displaylist{
 	margin-top: 10px;
 	margin-left: 10px;
