@@ -66,6 +66,10 @@ a{
 	margin-right: 10px;
 }
 
+#items + #items{
+	display: none;
+}
+
 #errors{
 	color: red;
 }
