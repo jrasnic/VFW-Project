@@ -93,11 +93,12 @@ window.addEventListener("DOMContentLoaded", function(){
 	function getData(){
 		toggleControls("on");
 
-		// var getGname = $("gname");
-		// var getGenre = $("genre");
-		// errMsg.innerHTML = "";
-		// getGname.style.border = "1px solid black";
-		// getGenre.style.border = "1px solid black";
+		//clear any error indicators from the form
+		var getGname = $("gname");
+		var getGenre = $("genre");
+		errMsg.innerHTML = "";
+		getGname.style.border = "1px solid black";
+		getGenre.style.border = "1px solid black";
 
 		if(localStorage.length === 0){
 			alert("No ratings saved");
@@ -147,7 +148,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Game";
-		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 	};
@@ -199,6 +200,17 @@ window.addEventListener("DOMContentLoaded", function(){
 		editSubmit.addEventListener("click", validate);
 		//save key value
 		editSubmit.key = this.key;
+	};
+
+	function deleteItem(){
+		var ask = confirm("Are you sure you want to delete this game?");
+		if (ask){
+			localStorage.removeItem(this.key);
+			alert("Game was deleted.");
+			window.location.reload();
+		}else{
+			alert("Game was NOT deleted.");
+		};
 	};
 
 	function validate(e){
