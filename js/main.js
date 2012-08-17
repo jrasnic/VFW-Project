@@ -1,6 +1,6 @@
 // Justin Rasnic
 // VFW 1208
-// Project 2
+// Project 3
 
 // Delay JS until DOM is ready (all code must be inside this function)
 window.addEventListener("DOMContentLoaded", function(){
@@ -74,7 +74,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			var id = Math.floor(Math.random()*10000001);
 		}else{
 			id = key;
-		}
+		};
 		getPlatformValues();
 		getRecommendationValue();
 		var item = {};
@@ -107,6 +107,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement("ul");
+		makeList.setAttribute("id", "itemslist");
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
 		$("items").style.display = "block"; 
@@ -175,7 +176,6 @@ window.addEventListener("DOMContentLoaded", function(){
 				};
 			};
 		};
-
 		$("quality").value = item.quality[1];	
 
 		// find which radio should be checked and check it
@@ -194,10 +194,12 @@ window.addEventListener("DOMContentLoaded", function(){
 
 		//remove initial listener from save button
 		save.removeEventListener("click", saveData);
+
 		//change submit button to edit button
 		$("submit").value = "Edit Game Entry";
 		var editSubmit = $("submit");
 		editSubmit.addEventListener("click", validate);
+
 		//save key value
 		editSubmit.key = this.key;
 	};
@@ -251,8 +253,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			return false;
 		}else{                        //if no errors, save data
 			saveData(this.key);
-		};
-		
+		};		
 	};
 
 	function clearData(){
@@ -264,7 +265,6 @@ window.addEventListener("DOMContentLoaded", function(){
 			window.location.reload();
 			return false;
 		};
-
 	};
 
 	// variables
