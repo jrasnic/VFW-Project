@@ -97,6 +97,15 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	};
 
+	function getImage(catName, makeSubList){
+		var imgli = document.createElement("li");
+		makeSubList.appendChild(imgli);
+		var newImg = document.createElement("img");
+		var setSrc = newImg.setAttribute("src", "images/" + catName + ".png");
+		imgli.appendChild(newImg);
+
+	};
+
 	// get data from local storage and display in browser
 	function getData(){
 		toggleControls("on");
@@ -135,6 +144,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement("ul");
 			makeLi.appendChild(makeSubList);
+			getImage(obj.genre[1],makeSubList);
 			for(var n in obj){
 				var makeSubLi = document.createElement("li");
 				makeSubList.appendChild(makeSubLi);
