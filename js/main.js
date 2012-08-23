@@ -1,6 +1,6 @@
 // Justin Rasnic
 // VFW 1208
-// Project 3
+// Project 4
 
 // Delay JS until DOM is ready (all code must be inside this function)
 window.addEventListener("DOMContentLoaded", function(){
@@ -100,10 +100,16 @@ window.addEventListener("DOMContentLoaded", function(){
 		getGname.style.border = "1px solid black";
 		getGenre.style.border = "1px solid black";
 
+		//if no data in local storage, use json data
 		if(localStorage.length === 0){
-			alert("No ratings saved");
+			var ask = confirm("No ratings saved. Do you want to load test data?");
+			if (ask){
+				autoFillData();
+			}else{
 			window.location.reload();
+			};	
 		};
+
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement("ul");
