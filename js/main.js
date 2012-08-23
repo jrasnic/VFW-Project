@@ -89,6 +89,14 @@ window.addEventListener("DOMContentLoaded", function(){
 		alert("Rating Saved!");		
 	};
 
+	// autofill local storage
+	function autoFillData(){
+		for(var n in json){
+			var id = Math.floor(Math.random()*10000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
+	};
+
 	// get data from local storage and display in browser
 	function getData(){
 		toggleControls("on");
@@ -100,7 +108,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		getGname.style.border = "1px solid black";
 		getGenre.style.border = "1px solid black";
 
-		//if no data in local storage, use json data
+		//if no data in local storage, use json data...would not leave in final product
 		if(localStorage.length === 0){
 			var ask = confirm("No ratings saved. Do you want to load test data?");
 			if (ask){
@@ -266,10 +274,14 @@ window.addEventListener("DOMContentLoaded", function(){
 	function clearData(){
 		if(localStorage.length === 0){
 			alert("There are no ratings to clear!");
-		} else{
-			localStorage.clear();
-			alert("All ratings are deleted!");
 			window.location.reload();
+		} else{
+			var ask = confirm("Are you sure you want to cleart all saved data?");
+			if(ask){
+				localStorage.clear();
+				alert("All ratings are deleted!");
+				window.location.reload();
+			};
 			return false;
 		};
 	};
