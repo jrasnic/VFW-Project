@@ -42,8 +42,8 @@ fieldset{
 }
 
 legend{
-	color: #0C315F;
-	font-size: 18px;
+	color: #185EB4;
+	font-size: 20px;
 	text-align: left;
 	font-weight: bold;
 }
@@ -57,6 +57,26 @@ nav{
 	margin-bottom: 40px;
 }
 
+a:link{
+text-decoration: none;
+color: #185EB4;
+}
+
+a:visited{
+	color: #185EB4;
+
+}
+
+a:hover{
+	/*font-size: 18px;*/
+	color: maroon;
+}
+
+a:active{
+	color: red;
+
+}
+
 nav a{
 	margin-right: 10px;
 	margin-left: 10px;
@@ -64,6 +84,10 @@ nav a{
 }
 a{
 	margin-right: 10px;
+}
+
+img{
+	margin-bottom: 10px;
 }
 
 #items + #items{
@@ -80,9 +104,9 @@ a{
 }
 
 #displaylist{
-	margin-top: 10px;
+	margin-top: 25px;
 	margin-left: 10px;
-	list-style-type: square;
+	list-style-type: none;
 	list-style-position: outside;
 }
 
@@ -113,6 +137,24 @@ a{
 	font-weight: bold;
 	font-size: 28px;
 	color: #185EB4;
+}
+
+#cta:visited{
+	text-decoration: none;
+	font-family: Eurostile, Arial Black, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 28px;
+	color: #185EB4;
+}
+
+#cta:hover{
+	color: maroon;
+	font-size: 32px;
+}
+
+#cta:active{
+	color: navy;
+	font-size: 28px;
 }
 
 #gname{
